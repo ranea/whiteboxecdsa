@@ -54,7 +54,7 @@ seed = None  # e.g., 0
 
 4. Locate the line `FAST_MODE = None  # True or False` in `script_generate_overflows.py` and set `FAST_MODE` to `True` or `False`. Run `script_generate_overflows.py`
 
-5. Locate the line `FAST_MODE = None  # True or False` in `script_printCarray.py` and set `FAST_MODE` to the same values as before. Run `script_printCarray.py`
+5. Locate the line `FAST_MODE = None  # True or False` in `script_printCarray.py` and set `FAST_MODE` to the same value as before. Run `script_printCarray.py`
 
 6. Move `list_overflows*.c` and `equation*_binary.c` to the corresponding `C code\* version` folder. 
 
@@ -62,7 +62,7 @@ seed = None  # e.g., 0
 
 ## Testing the C implementations
 
-To run and test the C implementation previously generated as [GitHub - CryptoExperts/whibox\_contest\_submission\_server: Source code of the Whitebox Contest Submission Server](https://github.com/CryptoExperts/whibox_contest_submission_server), run the following steps:
+To run and test the C implementation:
 
 1. Install the python library click. 
 2. Locate the following code block in `test\PUBLICKEY.py` and introduce your ECDSA public key pair:
@@ -75,9 +75,11 @@ Q_y = None  # e.g., "3084B4B8657EEA12396FDE260432BA7BDB3E092D61A42F830150D6CC8D7
 3. Move the final C code `final_binary.c` to `test` folder.
 4. In `test\compile_and_test.py`, modify `os.environ['FILE_BASENAME']` with the name of the final C code (without the `.c` extension) containing `void ECDSA_256_sign`.
 5. In macOS, uncomment the line `# ram = ram / 1000` of `compile_and_test.py` (in macOS the RAM is expressed in bytes while in Linux is in kilobytes)
-6. Run
+6. Finally, compile the code and run the tests:
 
 ```bash
 gcc -w -c main.c -o main.o
 python3 compile_and_test.py
 ```
+
+The `test` folder is from [GitHub - CryptoExperts/whibox\_contest\_submission\_server: Source code of the Whitebox Contest Submission Server](https://github.com/CryptoExperts/whibox_contest_submission_server).
